@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layout}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<body>
+<main  layout:fragment="main-content" class="m-5">
+    <h2>All Users</h2>
+    <hr>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
+        <div class="col" th:each="user:${users}" th:object="${user}">
+            <div th:replace="~{fragments/cards:: user-card(*{uuid},*{avatar},*{author})}"></div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

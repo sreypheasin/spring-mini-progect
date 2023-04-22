@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title layout:title-pattern="$CONTENT_TITLE - $LAYOUT_TITLE">Movie</title>    <th:block th:replace="~{fragments/styles}"></th:block>
+</head>
+
+<body>
+    <div th:replace="~{fragments/header}"></div>
+    <main  layout:fragment="main-content"></main>
+    <div th:replace="~{fragments/footer}"></div>
+</body>
+
+</html>

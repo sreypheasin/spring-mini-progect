@@ -1,0 +1,78 @@
+<div>
+
+<!--  top categories-form-->
+  <div th:fragment="categories-form(categories)" class=" justify-content-center float-end mt-2 ">
+    <div class="card" >
+      <img src="https://i.pinimg.com/564x/ea/68/7c/ea687ce654c577a689d755366de7b671.jpg"
+           alt="News Coffee" class="bd-placeholder-img card-img-top object-fit-cover" style="height: 350px">
+      <div class="card-body">
+        <h4>ResArticle</h4>
+        <p class="card-text">Free Posting and sharing any article with insane freedom</p>
+        <hr>
+      </div>
+    </div>
+    <div class="list-group mt-3">
+      <button type="button" class="list-group-item list-group-item-action active fs-5" aria-current="true">
+        Popular categories
+      </button>
+      <button
+              th:each="category :${categories}"
+              th:text="${category.name}"
+              type="button" class="list-group-item list-group-item-action">
+      </button>
+    </div>
+  </div>
+<!--  end categories form-->
+
+
+
+<!--  new post form-->
+  <div class="row bg-body-tertiary p-5 shadow-sm" th:fragment="newpost-form" >
+    <div class="col-4 " >
+      <img th:src="@{/resources/images/upload-placeholder.jpeg}" class='w-100 object-fit-cover opacity-75 rounded-3' style=" height: 350px" />
+
+      <div class="mb-3 mt-4 p-1 ">
+        <input class="form-control" type="file" id="formFile">
+      </div>
+    </div>
+
+    <div class="col-8">
+      <h4 class="mb-3">Create a new Post</h4>
+      <div class="mb-3">
+        <label for="postTitle" class="form-label">Post Title</label>
+        <input type="text" class="form-control" id="postTitle" placeholder="Enter title">
+      </div>
+      <div class="mb-3">
+        <label for="postDes" class="form-label">Description</label>
+        <textarea class="form-control" id="postDes" rows="3" ></textarea>
+      </div>
+
+      <div class="row d-flex justify-content-between">
+        <div class="col-4">
+          <label class="mb-2">Author</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-4 ">
+          <label class="mb-2">Choose Categories</label>
+          <select class="form-select" multiple aria-label="multiple select example">
+            <option selected>Open this select menu</option>
+            <option value="1">K-Drama</option>
+            <option value="2">C-Drama</option>
+            <option value="2">Anime</option>
+            <option value="2">Hollywood</option>
+          </select>
+        </div>
+      </div>
+      <div class=" d-flex justify-content-between mt-4">
+        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-outline-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+<!--  end post form-->
+</div>

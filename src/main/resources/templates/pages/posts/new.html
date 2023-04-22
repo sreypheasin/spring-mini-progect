@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layout}">
+
+<head>
+  <meta charset="UTF-8">
+  <title>new-post</title>
+</head>
+<body>
+<main  layout:fragment="main-content" class="m-5 pe-5 ps-5" >
+  <div th:replace="~{fragments/forms:: newpost-form}"></div>
+
+</main>
+</body>
+</html>

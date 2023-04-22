@@ -1,0 +1,72 @@
+<div xmlns:th="http://www.thymeleaf.org">
+
+<!--  post card -->
+    <div  class="card shadow-sm mt-2 mb-3 text-decoration-none"  th:fragment="post-card(uuid,title,description,thumbnail,categoryList,user)">
+        <div style="height: 500px">
+            <img th:src="@{/resources/images/defaults/posts/{thumbnail}(thumbnail= ${thumbnail})}" class="card-img-top h-100 object-fit-cover" alt="...">
+        </div>
+        <div class="card-body">
+            <div class="d-flex ">
+<!--                avatar in user repo-->
+                <img th:src="@{/resources/images/defaults/profiles/{avatar}(avatar= ${user.avatar})}" class="rounded-circle m-2" style="width: 50px;height: 50px"
+                     alt="Avatar" />
+                <div class="d-flex flex-column justify-content-center ms-2 ">
+<!--                    author in user repo-->
+                    <p class="mb-0" th:text="${user.author}"></p>
+                    <p class="mb-0 text-warning" th:text="'@'+${user.author}" ></p>
+                </div>
+            </div>
+            <h5 th:text="${title}"></h5>
+            <div class="mb-2" >
+                <span class="badge rounded-pill text-bg-warning me-2" th:each="category: ${categoryList}" th:text="${category.name}"></span>
+            </div>
+            <p th:text="${description}" class="card-text text-truncate"></p>
+        </div>
+    </div>
+<!--    end post card-->
+
+<!--    user card-->
+    <div  class="card shadow-sm mt-2 mb-3"  th:fragment="user-card(uuid,avatar,author)" >
+        <a style="height: 220px" >
+            <img th:src="@{/resources/images/defaults/profiles/{avatar}(avatar= ${avatar})}" class="card-img-top h-100 object-fit-cover" alt="...">
+        </a>
+        <div class="card-body">
+            <h5 class="mb-0 mb-2" th:text="${author}"></h5>
+<!--            <p class="card-text text-truncate" th:text="${users.title}"></p>-->
+            <a th:href="@{/user/view-profile}" class="btn btn-primary" >View Profile</a>
+        </div>
+    </div>
+<!--    end user card-->
+
+<!--    action card-->
+    <div  class="card shadow-sm mt-2 mb-3"  th:fragment="action-card">
+        <div style="height: 220px">
+            <img th:src="@{/resources/images/defaults/posts/post01.jpeg}" class="card-img-top h-100 object-fit-cover" alt="...">
+        </div>
+        <div class="card-body">
+            <div class="d-flex ">
+                <img th:src="@{/resources/images/defaults/profiles/profile01.jpeg}" class="rounded-circle m-2" style="width: 50px;height: 50px"
+                     alt="Avatar" />
+                <div class="d-flex flex-column justify-content-center ms-2 ">
+                    <p class="mb-0">odinn</p>
+                    <p class="mb-0 text-warning" >@i_odinn</p>
+                </div>
+            </div>
+            <h5>Lalisa</h5>
+            <div class="mb-2">
+                <span class="badge rounded-pill text-bg-warning">Warning</span>
+                <span class="badge rounded-pill text-bg-warning">Warning</span>
+            </div>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
+            <div >
+                <a href="#" type="button" class="btn btn-outline-success">Edit</a>
+                <a href="#" class="btn btn-outline-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+<!--    end action card-->
+
+    <div th:fragment="categories-card">
+
+    </div>
+</div>
